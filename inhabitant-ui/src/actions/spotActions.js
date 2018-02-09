@@ -1,5 +1,7 @@
 import * as types from './actionTypes';
 
+const apiKey = 'abc';
+
 function url() {
     return 'api.spotshit.com'
 }
@@ -23,3 +25,11 @@ export function fetchSpots() {
             .then(json => dispatch(getSpots(json)))
     }
 }
+
+export const postSpot = () => {
+    return dispatch => {
+        return fetch(url(), {
+            method: 'POST',
+        })
+    }
+};
