@@ -9,7 +9,8 @@ class App extends Component {
           <h1 className="App-title">SpotShit</h1>
         </header>
           <div>
-              <input type="file" accept="image/*" capture="camera" />
+
+              <input type="file" accept="image/*" capture="camera" onChange={(event) => console.log(event.target.value)}/>
           </div>
           <div>
               <p className="App-intro">
