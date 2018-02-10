@@ -49,16 +49,6 @@ class Dashboard extends React.Component{
                     </ItemGrid>
                     <ItemGrid xs={12} sm={6} md={3}>
                         <StatsCard
-                            icon={Store}
-                            iconColor="green"
-                            title="Revenue"
-                            description="$34,245"
-                            statIcon={DateRange}
-                            statText="Last 24 Hours"
-                        />
-                    </ItemGrid>
-                    <ItemGrid xs={12} sm={6} md={3}>
-                        <StatsCard
                             icon={InfoOutline}
                             iconColor="red"
                             title="Fixed Issues"
