@@ -47,3 +47,29 @@ export const postSpot = (file) => {
             .then(json => dispatch(getSpots(json)));
     }
 };
+
+export function uploadSuccess({ data }) {
+    return {
+        type: 'UPLOAD_DOCUMENT_SUCCESS',
+        payload: data,
+    };
+}
+
+export function uploadFail(error) {
+    return {
+        type: 'UPLOAD_DOCUMENT_FAIL',
+        payload: error,
+    };
+}
+
+export function uploadDocumentRequest({ file, name }) {
+    let data = new FormData();
+    data.append('file', file);
+    data.append('name', name);
+
+    return (dispatch) => {
+        axios.post('https://cryptic-scrubland-95766.herokuapp.com/spotshit/upload', data)
+            .then(response => dispatch(uploadSuccess(response)))
+            .catch(error => dispatch(uploadFail(error)));
+    };
+}

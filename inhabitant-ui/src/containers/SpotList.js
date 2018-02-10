@@ -32,13 +32,13 @@ spotList.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        stuffs: state.spots
+        spots: state.spots
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        stuffActions: bindActionCreators(spotActions, dispatch)
+        spotActions: bindActionCreators(spotActions, dispatch)
     };
 }
 

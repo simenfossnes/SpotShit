@@ -14,6 +14,18 @@ export default function stuff(state = initialState.spots, action) {
             console.log("GET_SPOTS...");
             return newState;
 
+        case 'UPLOAD_DOCUMENT_SUCCESS':
+            console.log("before upload payload");
+            console.log(action.payload);
+            console.log("after upload payload");
+            break;
+
+        case 'UPLOAD_DOCUMENT_ERROR':
+            console.log("before upload payload");
+            console.log(action.payload);
+            console.log("after upload payload");
+            break;
+
         default:
             return state;
     }
