@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import { UPDATE_FILE, UPDATE_FILE_AND_IMAGE_PREVIEW } from "../actions/actionTypes";
+import { UPDATE_FILE, UPDATE_FILE_AND_IMAGE_PREVIEW, UPDATE_TAGLINE } from "../actions/actionTypes";
 
 export default function stuff(state = initialState.file, action) {
     let newState;
@@ -17,10 +17,9 @@ export default function stuff(state = initialState.file, action) {
             console.log('UPDATE_FILE...');
             return newState;
 
-        case 'QUICKMATHS':
-            newState = state + "b";
-            console.log('boom.');
-            return newState;
+        case UPDATE_TAGLINE:
+            state = {...state, tagline: action.payload};
+            break;
 
         default:
             break;

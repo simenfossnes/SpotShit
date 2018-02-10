@@ -4,9 +4,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import './App.css';
 import {uploadDocumentRequest, simpleAction} from '../actions/spotActions';
-import {updateFileAndImagePreview} from '../actions/fileActions';
+import {updateFileAndImagePreview, updateTagline} from '../actions/fileActions';
 import FileUpload from '../components/FileUpload';
-import StartScreen from "../components/StartScreen";
+import AddSpotScreen from "../components/AddSpotScreen";
 
 
 
@@ -16,6 +16,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this._handleImageChange = this._handleImageChange.bind(this);
+        this._handleSubmit = this._handleSubmit.bind(this);
+        this.state = {
+            image: ''
+        }
     }
 
     componentDidMount() {
@@ -38,8 +42,9 @@ class App extends Component {
         console.log("e.target.files[0]", file);
 
         reader.onloadend = () => {
+            this.setState({image: file});
             this.props.updateFileAndImagePreview({
-                file: file,
+                file: '',
                 imagePreviewUrl: reader.result
             });
         };
@@ -48,19 +53,29 @@ class App extends Component {
         reader.readAsDataURL(file)
     }
 
+    _handleSubmit(e) {
+        e.preventDefault();
+        alert('handlesubmit was called.');
+        this.props.uploadDocumentRequest(this.state.file);
+        console.log('handle uploading-', this.state.file);
+    }
+
+
     render() {
         return (
             <div className="App">
 
 
-
-
-
                 <div className="text-container">
-                    <StartScreen handleImageChange={this._handleImageChange}/>
+                    <AddSpotScreen
+                        handleImageChange={this._handleImageChange}
+                        handleSubmit={this._handleSubmit}
+                        tagline={this.props.file.tagline}
+                        updateTagline={this.props.updateTagline}
+                    />
                     <div>
-                        <FileUpload uploadImage={this.props.uploadDocumentRequest}/>
-                        <SpotList/>
+                        {/*<FileUpload uploadImage={this.props.uploadDocumentRequest}/>*/}
+                        {/*<SpotList/>*/}
                     </div>
                 </div>
                 <div className="image-container">
@@ -83,7 +98,8 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         uploadDocumentRequest,
         simpleAction,
-        updateFileAndImagePreview
+        updateFileAndImagePreview,
+        updateTagline
     }, dispatch);
 };
 

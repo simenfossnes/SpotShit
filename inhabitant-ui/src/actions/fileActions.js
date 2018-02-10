@@ -8,3 +8,12 @@ export const updateFileAndImagePreview = (fileObj) => {
         });
     }
 };
+
+export const updateTagline = (tagline) => {
+    return dispatch => {
+        dispatch({
+            type: types.UPDATE_TAGLINE,
+            payload: tagline
+        });
+    }
+};

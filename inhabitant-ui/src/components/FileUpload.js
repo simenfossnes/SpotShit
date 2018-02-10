@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './FileUpload.css';
 import GoCheck from 'react-icons/lib/go/check';
 
 
@@ -10,11 +9,7 @@ class ImageUpload extends React.Component {
         this.state = {file: '',imagePreviewUrl: ''};
     }
 
-    _handleSubmit(e) {
-        e.preventDefault();
-        this.props.uploadImage(this.state.file);
-        console.log('handle uploading-', this.state.file);
-    }
+
 
     _handleImageChange(e) {
         e.preventDefault();

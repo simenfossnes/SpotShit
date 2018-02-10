@@ -5,3 +5,4 @@ export const UPDATE_FILE = 'UPDATE_FILE';
 
 // File Actions
 export const UPDATE_FILE_AND_IMAGE_PREVIEW = 'UPDATE_FILE_AND_IMAGE_PREVIEW';
+export const UPDATE_TAGLINE = 'UPDATE_TAGLINE';
