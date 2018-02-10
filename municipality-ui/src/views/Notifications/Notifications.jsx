@@ -35,11 +35,6 @@ class Notifications extends React.Component{
         return (
             <RegularCard
                 cardTitle="Notifications"
-                cardSubtitle={
-                    <P>
-                        Handcrafted by our friends from <A target="_blank" href="https://material-ui-next.com/">Material UI</A> and styled by <A target="_blank"  href="https://www.creative-tim.com/">Creative Tim</A>. Please checkout the <A href="#pablo" target="_blank">full documentation</A>.
-                    </P>
-                }
                 content={
                     <div>
                         <Grid container>
@@ -80,100 +75,6 @@ class Notifications extends React.Component{
                         </Grid>
                         <br />
                         <br />
-                        <Grid container justify="center">
-                            <ItemGrid xs={12} sm={12} md={6} style={{textAlign:"center"}}>
-                                <h5>
-                                    Notifications Places
-                                    <Small>
-                                        Click to view notifications
-                                    </Small>
-                                </h5>
-                            </ItemGrid>
-                        </Grid>
-                        <Grid container justify='center'>
-                            <ItemGrid xs={12} sm={12} md={10} lg={8}>
-                                <Grid container>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('tl')}>Top Left</Button>
-                                        <Snackbar
-                                            place="tl"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.tl}
-                                            closeNotification={() => this.setState({'tl':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('tc')}>Top Center</Button>
-                                        <Snackbar
-                                            place="tc"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.tc}
-                                            closeNotification={() => this.setState({'tc':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('tr')}>Top Right</Button>
-                                        <Snackbar
-                                            place="tr"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.tr}
-                                            closeNotification={() => this.setState({'tr':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                </Grid>
-                            </ItemGrid>
-                        </Grid>
-                        <Grid container justify={'center'}>
-                            <ItemGrid xs={12} sm={12} md={10} lg={8}>
-                                <Grid container>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('bl')}>Bottom Left</Button>
-                                        <Snackbar
-                                            place="bl"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.bl}
-                                            closeNotification={() => this.setState({'bl':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('bc')}>Bottom Center</Button>
-                                        <Snackbar
-                                            place="bc"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.bc}
-                                            closeNotification={() => this.setState({'bc':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                    <ItemGrid xs={12} sm={12} md={4}>
-                                        <Button fullWidth color="primary" onClick={() => this.showNotification('br')}>Bottom Right</Button>
-                                        <Snackbar
-                                            place="br"
-                                            color="info"
-                                            icon={AddAlert}
-                                            message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                                            open={this.state.br}
-                                            closeNotification={() => this.setState({'br':false})}
-                                            close
-                                        />
-                                    </ItemGrid>
-                                </Grid>
-                            </ItemGrid>
-                        </Grid>
                     </div>
                 }
             />
