@@ -56,16 +56,14 @@ class App extends Component {
     _handleSubmit(e) {
         e.preventDefault();
         alert('handlesubmit was called.');
-        this.props.uploadDocumentRequest(this.state.file);
-        console.log('handle uploading-', this.state.file);
+        this.props.uploadDocumentRequest(this.state.image);
+        console.log('handle uploading-', this.state.image);
     }
 
 
     render() {
         return (
             <div className="App">
-
-
                 <div className="text-container">
                     <AddSpotScreen
                         handleImageChange={this._handleImageChange}
