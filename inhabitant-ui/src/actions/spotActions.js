@@ -5,6 +5,23 @@ const url = (endpoint = '') => {
     return `api.spotshit.com/${endpoint}`
 };
 
+
+export function toggleAdvancedDesignerVisibility() {
+    return (dispatch) => {
+        dispatch({
+            type: "TOGGLE_ADVANCED_DESIGNER_VISIBILITY",
+        })
+    }
+}
+
+export function simpleAction() {
+    return dispatch => {
+        dispatch({
+            type: 'QUICKMATHS',
+        })
+    }
+}
+
 export const updateFile = (file) => {
     return dispatch => {
         dispatch({
@@ -62,11 +79,25 @@ export function uploadFail(error) {
     };
 }
 
-export function uploadDocumentRequest({ file, name }) {
+export function uploadDocumentRequest(file) {
+    // let data = new FormData();
+    // data.append('file', file);
+    // data.append('name', name);
+
     let data = new FormData();
     data.append('file', file);
-    data.append('name', name);
+    data.append('name', file.name);
+    console.log('data.......', data);
 
+    return (dispatch) => {
+        axios.post('https://cryptic-scrubland-95766.herokuapp.com/spotshit/upload', data)
+            .then(response => dispatch(uploadSuccess(response)))
+            .catch(error => dispatch(uploadFail(error)));
+    };
+}
+uploadDocumentRequest2
+export function uploadDocumentRequest2(data) {
+    console.log("upload document request 2", data);
     return (dispatch) => {
         axios.post('https://cryptic-scrubland-95766.herokuapp.com/spotshit/upload', data)
             .then(response => dispatch(uploadSuccess(response)))

@@ -10,6 +10,11 @@ export default function stuff(state = initialState.file, action) {
             console.log('UPDATE_FILE...');
             return newState;
 
+        case 'QUICKMATHS':
+            newState = state + "b";
+            console.log('boom.');
+            return newState;
+
         default:
             return state;
     }

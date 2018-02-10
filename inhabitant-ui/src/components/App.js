@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import SpotList from '../containers/SpotList';
+import {connect} from 'react-redux';
+import {bindActionCreators} from "redux";
 import './App.css';
-import {uploadDocumentRequest} from '../actions/spotActions';
+import {uploadDocumentRequest, simpleAction} from '../actions/spotActions';
 import FileUpload from './FileUpload';
+
 
 class App extends Component {
 
@@ -12,7 +15,7 @@ class App extends Component {
     }
 
     handleFileUpload({file}) {
-        console.log('HEYYYYYYYY.....');
+        console.log('HEY...');
         // const file = files[0];
         console.log(file);
         //console.log(files[0]);
@@ -27,16 +30,16 @@ class App extends Component {
             <div className="App">
                 <header className="App-header">
                     <h1 className="App-title">SpotShit</h1>
+                    <button onClick={this.props.simpleAction}>dispatch action (test)</button>
                 </header>
                 <div>
-                    <input type="file" accept="image/*" capture="camera" onChange={this.handleFileUpload}/>
-
+                    <input type="file" accept="image/*" capture="camera" onChange={this.props.uploadDocumentRequest}/>
                 </div>
                 <div>
                     <p className="App-intro">
                         ...
                     </p>
-                    <FileUpload/>
+                    <FileUpload uploadImage={this.props.uploadDocumentRequest}/>
                     <SpotList/>
                 </div>
             </div>
@@ -44,4 +47,17 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        spots: state.spots
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        uploadDocumentRequest,
+        simpleAction
+    }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

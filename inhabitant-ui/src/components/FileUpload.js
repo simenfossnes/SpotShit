@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './FileUpload.css';
+
 
 class ImageUpload extends React.Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class ImageUpload extends React.Component {
 
     _handleSubmit(e) {
         e.preventDefault();
-        // TODO: do something with -> this.state.file
+        this.props.uploadImage(this.state.file);
         console.log('handle uploading-', this.state.file);
     }
 
@@ -17,7 +19,9 @@ class ImageUpload extends React.Component {
         e.preventDefault();
 
         let reader = new FileReader();
+        console.log("e.target.files", e.target.files);
         let file = e.target.files[0];
+        console.log("e.target.files[0]", file);
 
         reader.onloadend = () => {
             this.setState({
@@ -55,5 +59,9 @@ class ImageUpload extends React.Component {
         )
     }
 }
+
+ImageUpload.propTypes = {
+    uploadImage: PropTypes.func
+};
 
 export default ImageUpload;
