@@ -86,7 +86,6 @@ export function uploadDocumentRequest(file) {
 
     let data = new FormData();
     data.append('file', file);
-    data.append('name', file.name);
     console.log('data.......', data);
 
     return (dispatch) => {
