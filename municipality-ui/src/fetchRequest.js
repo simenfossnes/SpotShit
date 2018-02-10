@@ -13,18 +13,12 @@ function dbStatement(statement) {
 
 function newRequest(type, path, params) {
 	let request;
-	
+
 	request = new Request(path, {
 		method: 'GET'
 	});
 
 	return request;
-}
-
-function uriParams(params) {
-	let esc = encodeURIComponent;
-	let query = Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
-	return '?' + query;
 }
 
 /* useage :
