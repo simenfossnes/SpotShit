@@ -3,7 +3,7 @@ import {
     withStyles, Grid
 } from 'material-ui';
 import {
-    ContentCopy, Store, InfoOutline, Warning, DateRange, LocalOffer, Update, ArrowUpward, AccessTime, Accessibility
+    ContentCopy, InfoOutline, Warning, LocalOffer, Update, ArrowUpward, AccessTime, Accessibility
 } from 'material-ui-icons';
 import PropTypes from 'prop-types';
 // react plugin for creating charts
@@ -40,7 +40,7 @@ class Dashboard extends React.Component{
                         <StatsCard
                             icon={ContentCopy}
                             iconColor="orange"
-                            title="SpotSHIT received"
+                            title="Messages received"
                             description="43"
                             statIcon={Warning}
                             statIconColor="danger"

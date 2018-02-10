@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import axios,{post} from 'axios';
 
 const url = (endpoint = '') => {
-    return `api.spotshit.com/${endpoint}`
+    return `api.ByVarsling.com/${endpoint}`
 };
 
 
@@ -38,7 +38,7 @@ export const getSpots = (json) => {
 export const fetchSpots = () => {
     console.log('fetching spots');
     return dispatch => {
-        axios.get('https://cryptic-scrubland-95766.herokuapp.com/spotshit/dummy')
+        axios.get('https://cryptic-scrubland-95766.herokuapp.com/ByVarsling/dummy')
             .then(function (response) {
                 console.log(response);
                 dispatch(getSpots(response));
@@ -89,7 +89,7 @@ export function uploadDocumentRequest(file) {
     console.log('data.......', data);
 
     return (dispatch) => {
-        axios.post('https://cryptic-scrubland-95766.herokuapp.com/spotshit/upload', data)
+        axios.post('https://cryptic-scrubland-95766.herokuapp.com/ByVarsling/upload', data)
             .then(response => dispatch(uploadSuccess(response)))
             .catch(error => dispatch(uploadFail(error)));
     };
@@ -98,7 +98,7 @@ uploadDocumentRequest2
 export function uploadDocumentRequest2(data) {
     console.log("upload document request 2", data);
     return (dispatch) => {
-        axios.post('https://cryptic-scrubland-95766.herokuapp.com/spotshit/upload', data)
+        axios.post('https://cryptic-scrubland-95766.herokuapp.com/ByVarsling/upload', data)
             .then(response => dispatch(uploadSuccess(response)))
             .catch(error => dispatch(uploadFail(error)));
     };

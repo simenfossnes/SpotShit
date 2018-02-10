@@ -6,6 +6,16 @@ import {
     Marker,
 } from "react-google-maps";
 
+
+let db = require("fetchRequest");
+
+let posTest;
+
+Promise.resolve(db.dbStatement("where=id&equal=16")).then((res) => {
+  posTest = JSON.parse(res[0].loc);
+  console.log(posTest);
+});
+
 const CustomSkinMap = withScriptjs(withGoogleMap(props =>
     <GoogleMap
         defaultZoom={13}
@@ -19,7 +29,8 @@ const CustomSkinMap = withScriptjs(withGoogleMap(props =>
     >
         <Marker
             position={{ lat: 58.163726,
-                        lng: 7.999950 }}
+                        lng: 7.999950,
+                        }}
         />
     </GoogleMap>
 ));
