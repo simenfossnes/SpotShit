@@ -29,7 +29,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1 className="App-title">SpotShit</h1>
+                    <h1 className="App-title">ByVarsling</h1>
                     <button onClick={this.props.simpleAction}>dispatch action (test)</button>
                 </header>
                 <div>

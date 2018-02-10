@@ -13,7 +13,7 @@ class TableList extends React.Component{
             <Grid container>
                 <ItemGrid xs={12} sm={12} md={12}>
                     <RegularCard
-                        cardTitle="SpotSHIT Table"
+                        cardTitle="ByVarsling Table"
                         content={
                             <Table
                                 tableHeaderColor="primary"

@@ -14,7 +14,7 @@ class Footer extends React.Component{
                 <div className={classes.container}>
                     <p className={classes.right}>
                         <span>
-                            &copy; {1900 + (new Date()).getYear()} <a href="http://www.spotshit.com" className={classes.a}>SpotSHIT &trade;</a>, made with love for spotting shitty things
+                            &copy; {1900 + (new Date()).getYear()} <a href="http://www.ByVarsling.com" className={classes.a}>ByVarsling &trade;</a>, made with love for spotting shitty things
                         </span>
                     </p>
                 </div>
