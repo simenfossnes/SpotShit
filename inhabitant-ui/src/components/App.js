@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import SpotList from '../containers/SpotList';
 import './App.css';
-
+import {postSpot, fetchSpots} from '../actions/spotActions';
 
 class App extends Component {
-  render() {
+
+    onFormSubmit = (e) => {
+        e.preventDefault();
+        alert('this is it!');
+        postSpot();
+    };
+
+    componentWillMount() {
+        fetchSpots();
+    }
+
+    render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">SpotShit</h1>
         </header>
           <div>
-              <input type="file" accept="image/*" capture="camera" onChange={(event) => console.log(event.target.value)}/>
+              <form onSubmit={this.onFormSubmit}>
+                  <input type="file" accept="image/*" capture="camera" onChange={(event) => console.log(event.target.value)}/>
+                  <button type="submit">Upload</button>
+              </form>
           </div>
           <div>
               <p className="App-intro">
