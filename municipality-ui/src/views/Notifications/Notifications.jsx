@@ -7,7 +7,7 @@ import {
 } from 'material-ui-icons';
 
 import {
-    RegularCard, A, P, Small, Button, SnackbarContent, Snackbar, ItemGrid
+    RegularCard, SnackbarContent, ItemGrid
 } from 'components';
 
 class Notifications extends React.Component{
