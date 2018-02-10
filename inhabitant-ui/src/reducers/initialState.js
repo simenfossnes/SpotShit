@@ -1,4 +1,8 @@
 export default {
-    file: "",
+    file: {
+        file: '',
+        imagePreviewUrl: '',
+        tagline: ''
+    },
     spots: []
 };

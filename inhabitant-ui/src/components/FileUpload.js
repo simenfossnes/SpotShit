@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './FileUpload.css';
+import GoCheck from 'react-icons/lib/go/check';
 
 
 class ImageUpload extends React.Component {
@@ -23,6 +24,7 @@ class ImageUpload extends React.Component {
         let file = e.target.files[0];
         console.log("e.target.files[0]", file);
 
+
         reader.onloadend = () => {
             this.setState({
                 file: file,
@@ -30,6 +32,7 @@ class ImageUpload extends React.Component {
             });
         }
 
+        // IF NO IMAGE FILE IS ADDED, CLEAR THE IMAGE FIELD
         reader.readAsDataURL(file)
     }
 
@@ -45,12 +48,10 @@ class ImageUpload extends React.Component {
         return (
             <div className="previewComponent">
                 <form onSubmit={(e)=>this._handleSubmit(e)}>
-                    <input className="fileInput"
-                           type="file"
-                           onChange={(e)=>this._handleImageChange(e)} />
-                    <button className="submitButton"
-                            type="submit"
-                            onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+                    <input className="fileInput" type="file" accept="image/*" capture="camera" onChange={(e)=>this._handleImageChange(e)} />
+                    <button className="submit-icon" type="submit" onClick={(e)=>this._handleSubmit(e)}>
+                        <GoCheck/>
+                    </button>
                 </form>
                 <div className="imgPreview">
                     {$imagePreview}
@@ -61,7 +62,9 @@ class ImageUpload extends React.Component {
 }
 
 ImageUpload.propTypes = {
-    uploadImage: PropTypes.func
+    uploadImage: PropTypes.func,
+    file: PropTypes.string,
+    imagePreviewUrl: PropTypes.string
 };
 
 export default ImageUpload;
