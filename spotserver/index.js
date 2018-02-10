@@ -55,6 +55,7 @@ function uploadImage(req, res, next) {
   }
  
   let sampleFile = req.files.file;
+  console.log(req.files);
   let d = Date.now();
   let ranName = randomName() + '.jpeg';
   let ranGeo = dummGeo[Math.round((Math.random() * (dummGeo.length - 1)))];
